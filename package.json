@@ -1,0 +1,23 @@
+{
+  "name": "lb-cli",
+  "version": "1.0.0",
+  "description": "一个能够创建各种模板的前端脚手架~",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "create-lb-cli": "index.js",
+    "sdc-cli": "index.js"
+  },
+  "scripts": {
+    "build": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "liben",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.1.2",
+    "cross-spawn": "^7.0.3",
+    "minimist": "^1.2.7",
+    "prompts": "^2.4.2"
+  }
+}
