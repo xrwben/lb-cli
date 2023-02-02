@@ -1,23 +1,30 @@
 {
-  "name": "lb-cli",
-  "version": "1.0.0",
+  "name": "create-lb-cli",
+  "version": "0.0.3",
   "description": "一个能够创建各种模板的前端脚手架~",
+  "keywords": [],
   "main": "index.js",
   "type": "module",
   "bin": {
     "create-lb-cli": "index.js",
-    "sdc-cli": "index.js"
+    "lb-cli": "index.js"
   },
+  "files": [
+    "index.js",
+    "src",
+    "templates"
+  ],
   "scripts": {
-    "build": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "node index.js"
   },
   "author": "liben",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "chalk": "^5.1.2",
     "cross-spawn": "^7.0.3",
+    "download-git-repo": "^3.0.2",
     "minimist": "^1.2.7",
+    "ora": "^6.1.2",
     "prompts": "^2.4.2"
   }
 }

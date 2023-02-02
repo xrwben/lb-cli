@@ -35,7 +35,7 @@ export const emptyDir = (dir) => {
 // 拷贝文件
 export const copy = (srcDir, targetDir) => {
   const files = fs.readdirSync(srcDir)
-  console.log(files)
+  // console.log(files)
   files.forEach(file => {
     const _path = path.resolve(srcDir, file)
     const _target = path.resolve(targetDir, file)
