@@ -1,4 +1,4 @@
-import path, { resolve } from 'path'
+import path from 'path'
 import fs from 'fs'
 import prompts from 'prompts'
 import spawn from 'cross-spawn'
@@ -63,21 +63,29 @@ const start = async () => {
       name: 'framework',
       message: '选择框架？',
       choices: () => [
-        { title: 'SDC-Web', value: 'sdc' },
+        { title: 'SDC', value: 'sdc' },
         { title: 'Vue', value: 'vue' },
         { title: 'React', value: 'react' }
       ],
       initial: 0
     },
     {
-      type: (pre) => pre === 'sdc' ? null : 'select',
+      type: 'select',
       name: 'language',
-      message: '选择开发语言？',
+      message: (pre) => pre === 'sdc' ? '选择模板？' : '选择开发语言？',
       choices: (pre) => {
+        const sdcTemplate = [
+          { title: 'web', value: 'web' },
+          { title: 'mobile- 不建议使用', value: 'mobile' },
+          { title: 'mfe', value: 'mfe' }
+        ]
         const langList = [
           { title: 'JavaScript', value: 'js' },
           { title: 'TypeScript', value: 'ts' }
         ]
+        if (pre === 'sdc') {
+          return sdcTemplate
+        }
         if (pre === 'vue') {
           langList.push({ title: 'Customize with create-vue ↗', value: 'custom' })
         }
@@ -141,8 +149,14 @@ const start = async () => {
 
   // 下载文件
   if (framework === 'sdc') {
+    const srcMap = {
+      'web': 'direct:https://git.woa.com/hr-team/nts/SDCFront/sdc-web-app.git#master',
+      'mobile': 'direct:https://git.woa.com/hr-team/nts/SDCFront/sdc-mob-app.git#master',
+      'mfe': 'direct:https://git.woa.com/hr-team/nts/SDCFront/sdc-mfe.git#master'
+    }
+    const srcPath = srcMap[language]
     await new Promise((resolve, reject) => {
-      downloadGitRepo(`direct:https://git.woa.com/hr-team/nts/SDCFront/sdc-web-app.git`, targetDir,  { clone: true }, (err) => {
+      downloadGitRepo(srcPath, targetDir,  { clone: true }, (err) => {
         if (err) {
           reject(err)
           // console.log(chalk.red(err))
