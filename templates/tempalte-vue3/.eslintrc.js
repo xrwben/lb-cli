@@ -9,13 +9,13 @@ module.exports = {
     'eslint:recommended',
     'plugin:vue/vue3-recommended',
     // 'plugin:vue/vue3-strongly-recommended',
-    'plugin:@typescript-eslint/recommended',
+    // 'plugin:@typescript-eslint/recommended',
     'prettier'
   ],
   parser: 'vue-eslint-parser',
   parserOptions: {
     ecmaVersion: 'latest',
-    parser: '@typescript-eslint/parser',
+    // parser: '@typescript-eslint/parser',
     sourceType: 'module',
     ecmaFeatures: {
       globalReturn: false,
@@ -26,7 +26,7 @@ module.exports = {
   // plugins：eslint-plugin-vue @typescript-eslint/eslint-plugin eslint-plugin-prettier的缩写
   plugins: [
     'vue',
-    '@typescript-eslint',
+    // '@typescript-eslint',
     'prettier'
   ],
   rules: {
