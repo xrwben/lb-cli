@@ -1,5 +1,6 @@
 import path from 'path'
 import fs from 'fs'
+import url from 'url'
 import prompts from 'prompts'
 import spawn from 'cross-spawn'
 import chalk from 'chalk'
@@ -10,7 +11,10 @@ import { pkgFromUserAgent, isValidPackageName, emptyDir, copy, updatePackage } f
 
 const defaultProjectName = 'sdc-web'
 
-// console.log(process.cwd())
+console.log(process.cwd())
+console.log('fileURLToPath>>>>', path.resolve(url.fileURLToPath(import.meta.url), '../../', './templates'))
+// const templateRoot = path.resolve(process.cwd(), './templates')
+// console.log(templateRoot)
 
 // console.log("process.argv:", process.argv)
 // console.log("minimist:", minimist(process.argv.slice(2), { string: ['_'] }))
@@ -76,7 +80,7 @@ const start = async () => {
       choices: (pre) => {
         const sdcTemplate = [
           { title: 'web', value: 'web' },
-          { title: 'mobile- 不建议使用', value: 'mobile' },
+          { title: 'mobile - 不建议使用', value: 'mobile' },
           { title: 'mfe', value: 'mfe' }
         ]
         const langList = [
@@ -142,8 +146,8 @@ const start = async () => {
 
   // 下载模板目录
   const templateName = `template-${framework}-${language}`
-  const templateRoot = path.resolve(process.cwd(), './templates', templateName)
-  // console.log(templateName, templateRoot)
+  const templateRoot = path.resolve(url.fileURLToPath(import.meta.url), '../../', './templates', templateName)
+  // console.log('templateRoot>>>', templateRoot)
 
   spinner.start()
 
@@ -178,8 +182,8 @@ const start = async () => {
   function printMessage () {
     console.log(chalk.green('\n\n项目创建成功!!!\n'))
     console.log(chalk.cyan(`  cd ${projectName}`))
-    console.log(chalk.cyan('  npm install'))
-    console.log(chalk.cyan('  npm run dev'))
+    console.log(chalk.cyan(`  ${framework === 'sdc' ? 'tnpm' : 'npm'} install`))
+    console.log(chalk.cyan(`  ${framework === 'sdc' ? 'tnpm' : 'npm'} run dev`))
   }
 
 }

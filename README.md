@@ -27,7 +27,9 @@ npm init lb-cli
 
 1、下载该项目
 2、npm link
-3、npm unlink
+3、npm link [package.name]
+4、npm unlink [package.name]
+5、npm unlink
 
 学习：
 

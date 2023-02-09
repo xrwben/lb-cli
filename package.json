@@ -1,8 +1,10 @@
 {
   "name": "create-lb-cli",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "一个能够创建各种模板的前端脚手架~",
-  "keywords": ["lb-cli"],
+  "keywords": [
+    "lb-cli"
+  ],
   "main": "index.js",
   "type": "module",
   "bin": {
