@@ -1,0 +1,12 @@
+# .stylelintignore
+
+*.js
+*.png
+*.eot
+*.ttf
+*.woff
+
+# 测试和打包目录
+/test/
+dist
+node_modules

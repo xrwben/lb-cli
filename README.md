@@ -26,9 +26,13 @@ npm init lb-cli
 ##### 本地开发
 
 1、下载该项目
-2、npm link
-3、npm link [package.name]
+
+2、npm link 创建全局link
+
+3、npm link [package.name] 安装link包
+
 4、npm unlink [package.name]
+
 5、npm unlink
 
 学习：

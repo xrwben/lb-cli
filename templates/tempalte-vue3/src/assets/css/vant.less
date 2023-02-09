@@ -1,0 +1,36 @@
+.van-button--info {
+  background: @color-theme;
+  border-color: @color-theme;
+}
+
+.van-button--plain {
+  background: #fff;
+  color: @color-theme;
+  border-color: @color-theme;
+}
+
+.van-dialog {
+  width: 300px;
+
+  .van-dialog__header {
+    color: #333;
+    font-size: 17px;
+    font-weight: 600;
+    padding-top: 20px;
+  }
+  .van-dialog__footer {
+    .van-button {
+      font-size: 17px;
+    }
+
+    .van-dialog__cancel {
+      color: #666;
+      font-weight: 400;
+    }
+
+    .van-dialog__confirm {
+      font-weight: 600;
+      color: @color-theme;
+    }
+  }
+}
