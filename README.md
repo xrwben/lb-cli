@@ -27,13 +27,18 @@ npm init lb-cli
 
 1、下载该项目
 
-2、npm link 创建全局link
+> 全局安装模式
 
-3、npm link [package.name] 安装link包
+2、npm link 相当于执行了全局安装，它会把我们的项目安装到全局的 node_modules 目录文件下
 
-4、npm unlink [package.name]
+3、npm unlink
 
-5、npm unlink
+> 局部安装模式
+
+2、npm link [package.name] 调试项目下安装link包
+
+3、npm unlink [package.name]
+
 
 学习：
 
